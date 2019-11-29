@@ -1,0 +1,234 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0;
+  -webkit-boz-sizing: border-box;
+     -moz-boz-sizing: border-box;
+}
+
+html,
+body {
+  background-image: url("./img/fundo.png");
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #000000;
+  height: 100vh;
+}
+/* BACKGROUND*/
+body {
+  background-color: #7159c1;
+  font-family: Roboto, Arial, sans-serif;
+}
+
+/* BARRA DE ACESSO LATERAL */
+a{
+  text-decoration: none;
+  color: white;
+  display: block;
+  padding: 15px 10px;
+}
+
+a:hover{
+  background-color: indigo;
+}
+
+label{
+  padding: 1px;
+  position: relative;
+  z-index: 1;
+}
+
+img{
+  width: 50px;
+}
+
+input[type="checkbox"]{
+  display: none;
+}
+
+nav{
+  background-color: #7159c1;
+  width: 350px;
+  left: -350px;
+  height: 800px;
+  position: fixed;
+  transition: all .3s;
+}
+
+input[type="checkbox"]:checked ~ nav{
+  transform: translateX(350px);
+
+}
+
+ul{
+  padding: 5px;
+  list-style: none;
+  top: 1px;
+  position: absolute;
+  width: 100%;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* TITULO PRINCIPAL */
+h1 {
+  font-size: 32px;
+  letter-spacing: 1px;
+  margin: 20px 0;
+  color: white;
+}
+/* SUB TITULO*/
+b {
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin: 5px 0;
+  color: white;
+}
+
+b {
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin: 5px 0;
+  color: white;
+}
+
+/* CAIXA DO FORM */
+form {
+  margin: 20px 0;
+  background-color: white;
+  padding: 30px 25px;
+  border-radius: 5px;
+}
+
+form .input-block {
+  margin-bottom: 20px;
+}
+
+form .input-block label {
+  font-size: 14px;
+  color: darkslateblue;
+}
+
+form .input-block input {
+  width: 100%;
+  display: block;
+  margin-top: 8px;
+  padding: 7px;
+  font-size: 16px;
+  color: #7159c1;
+  border-radius: 2px;
+  border: 1px solid #ccddef;
+  outline-color: #7159c1;
+}
+/* BOTÕES */
+form .btn-login { 
+  display: block;
+  min-width: 120px;
+  border: none;
+  background-color: #7159c1;
+  color: white;
+  border-radius: 25px;
+  margin: auto;
+  padding: 7px;
+}
+
+form .btn-cadastro { 
+  
+  display: block;
+  min-width: 120px;
+  border: none;
+  background-color: green;
+  color: white;
+  border-radius: 25px;
+  margin: 50px;
+  padding: 7px;
+}
+
+/* APARIÇÃO DO FORM */
+form {
+  overflow: hidden;
+  animation: fade 0.2s;
+}
+/* ANIMAÇÃO DA CAIXA DE LOGIN */
+form .input-block:nth-child(1) {
+  animation: move 500ms;
+}
+/* ANIMAÇÃO DA CAIXA DE SENHA */
+form .input-block:nth-child(2) {
+  animation: move 400ms;
+  animation-delay: 100ms;
+  animation-fill-mode: backwards;
+}
+/* ANIMAÇÃO DO BOTAO DE LOGIN */
+form .btn-login {
+  animation: move 400ms;
+  animation-delay: 250ms;
+  animation-fill-mode: backwards;
+}
+form .btn-cadastro {
+  animation: move 400ms;
+  animation-delay: 250ms;
+  animation-fill-mode: backwards;
+}
+/* FORMULARIO APARECE QUANDO INICIA PAGINA */
+@keyframes move {
+  from {
+    opacity: 0;
+    transform: translateX(-35%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+/* ANIMAÇÃO FORMULARIO */
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Quando clicar no botão, sumir com o form */
+.form-hide {
+  animation: down 1.2s forwards;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+@keyframes down {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+/* FORM NO-NO */
+form.validate-error {
+  animation: nono 100ms linear, fade paused;
+  animation-iteration-count: 3;
+}
+
+@keyframes nono {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  35% {
+    transform: translateX(-15%);
+  }
+  70% {
+    transform: translateX(15%);
+  }
+}
